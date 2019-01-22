@@ -19,7 +19,7 @@ class DetailView(generic.DetailView):
     template_name = 'polls/detail.html'
 
 
-class results(generic.DetailView):
+class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
 
@@ -37,5 +37,3 @@ def vote(request, question_id):
         selected_choice.votes += 1
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
-
-
